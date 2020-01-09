@@ -1,7 +1,6 @@
-FROM nginx
+FROM nginx:latest
 EXPOSE 80
-COPY index0.html /gitRep/h/index0.html
+COPY index0.html /usr/share/nginx/html/index0.html
 COPY front.conf /etc/nginx/conf.d/default.conf
 RUN nginx -t
-RUN service nginx stop
-RUN service nginx start
+CMD /usr/sbin/nginx -g "daemon off;"
